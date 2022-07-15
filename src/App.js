@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import Header from "./components/Header";
+import Articles from "./pages/Articles";
+import Content from "./components/Content";
+import Footer from "./components/Footer";
+import Button from "./components/Button";
+
+import "./App.css";
+
+const green = "#2ecc71";
+const grey = "#ecf0f1";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Content>
+        <Articles />
+        <Button bgColor="green" color="grey" label="Button"/>
+      </Content>
+      <Footer/>
     </div>
   );
 }
