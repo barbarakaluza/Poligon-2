@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./style.css";
+
 // function Form() {
 //     return (
 //         <form onSubmit={handlerSubmit}>
@@ -10,27 +12,43 @@ import React from "react";
 
 class Form extends React.Component {
   state = {
-    name: ""
+    name: "",
+    surname: "",
+    age: "",
+    city: "",
+    sex: ""
   };
 
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
   handlerButton = () => console.log("Click");
+
   handlerSubmit = (event) => event.preventDefault();
+
   handleChange = (event) => {
-    console.log("input value: ", event.target.value)
-    this.setState({ name: event.target.value })
-    console.log("name: ", this.name);
+    const keyName = event.target.name;
+    this.setState({ [keyName]: event.target.value })
   }
 
   render() {
     return (
-      <form onSubmit={this.handlerSubmit}>
-        <input type="text" onChange={this.handleChange}></input>
-        <button onClick={this.handlerButton}>Click me!</button>
+      <form className="form" onSubmit={this.handlerSubmit}>
+        <h3>Put your data:</h3>
+        <label for="name" className="form-input">Name</label>
+          <input className="form-input-area" type="text" name="name" placeholder="name" onChange={this.handleChange}></input>
+
+        <label for="surname" className="form-input">Surname  </label>
+          <input className="form-input-area" type="text" name="surname" placeholder="surname" onChange={this.handleChange}></input>
+      
+        <label for="age" className="form-input">Age</label>
+          <input className="form-input-area" type="text" name="age" placeholder="age" onChange={this.handleChange}></input>
+        
+        <label for="city" className="for-input">City</label>
+          <input className="form-input-area" type="text" name="city" placeholder="city" onChange={this.handleChange}></input>
+
+        <label for="sex" className="form-input">Sex</label>
+          <input className="form-input-area" type="text" name="sex" placeholder="sex" onChange={this.handleChange}></input>
+        
+        <button className="form-button" onClick={this.handlerButton}>Save</button>
+        <p>Thank you!</p>
       </form>
     );
   }
