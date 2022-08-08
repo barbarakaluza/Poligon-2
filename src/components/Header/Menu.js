@@ -1,6 +1,6 @@
 import React from "react";
 
-function Menu({ children }) {
+function Menu({children}) {
     return (
         <div>
             {children}

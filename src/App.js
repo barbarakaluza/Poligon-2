@@ -1,27 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
+import {
+BrowserRouter as Router,
+Route, 
+Link
+} from "react-router-dom";
+
 
 import Header from "./components/Header";
-import Articles from "./pages/Articles";
-import Content from "./components/Content";
 import Footer from "./components/Footer";
-import Form from "./components/Form";
+import Registration from "./pages/Registration";
+import Home from "./pages/Home";
+import Articles from "./pages/Articles";
+import Contact from "./pages/Contact";
+
 
 import "./App.css";
 
-const green = "#2ecc71";
-const grey = "#ecf0f1";
-
-
 function App() {
   return (
-    <div className="App">
+    <Router className="App">
       <Header />
-      <Content>
-        <Articles />
-      </Content>
-      <Form/>
+      <Route path="/home">
+        <Home/>
+      </Route>
+      <Route path="/articles">
+        <Articles/>
+      </Route>
+      <Route path="/register">
+      <Registration/>
+      </Route>
+      <Route path="/cantact">
+        <Contact/>
+      </Route>
       <Footer/>
-    </div>
+    </Router>
   );
 }
 
